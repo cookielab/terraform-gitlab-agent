@@ -59,15 +59,19 @@ No outputs.
 Example config
 ```hcl
 agent_config = {
-    "ci_access" = {
-      "projects" = [
-        id : path/to/project, environments = ["exampleEnvironment1", "exampleEnvironment2"]
-        ]
-      "groups" = [
-        id : path/to/group/subgroup, environments = ["exampleEnvironment1", "exampleEnvironment2"]
-          }
-      ]
-    }
+  "ci_access" = {
+    "projects" = [
+      {
+        "id" : path/to/project, environments = ["exampleEnvironment1", "exampleEnvironment2"]
+      }
+    ]
+    "groups" = [
+      {
+        "id" : path/to/group/subgroup, environments = ["exampleEnvironment1", "exampleEnvironment2"]
+      }
+    ]
+  }
+}
 ```
 
 
