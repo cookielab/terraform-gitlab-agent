@@ -4,11 +4,11 @@ terraform {
   required_providers {
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.9.0"
+      version = "~> 2.9"
     }
     gitlab = {
       source  = "gitlabhq/gitlab"
-      version = "~> 15.11.0"
+      version = "~> 15.11"
     }
   }
 }
