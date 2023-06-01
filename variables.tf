@@ -37,6 +37,11 @@ variable "chart_version" {
   default = "1.13.0"
 }
 
+variable "agent_version" {
+  type    = string
+  default = null
+}
+
 variable "token_description" {
   type    = string
   default = ""

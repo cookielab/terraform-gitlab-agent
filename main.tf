@@ -48,7 +48,7 @@ resource "helm_release" "gitlab_agent" {
 
   values = [<<YAML
 image:
-  tag: ${var.chart_version}
+  tag: ${var.agent_version}
 config:
   kasAddress: "${data.gitlab_metadata.this.kas.external_url}"
 YAML
