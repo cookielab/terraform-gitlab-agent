@@ -7,7 +7,7 @@ variable "create_project" {
 variable "project_name" {
   type        = string
   default     = "k8s-agent"
-  description = "agent managing project name/id"
+  description = "agent managing project nice/visible name"
 }
 
 variable "agent_config" {
