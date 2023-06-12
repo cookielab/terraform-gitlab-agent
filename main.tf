@@ -46,9 +46,12 @@ resource "helm_release" "gitlab_agent" {
     value = gitlab_cluster_agent_token.this.token
   }
 
+  set {
+    name  = "image.tag"
+    value = var.agent_version
+  }
+
   values = [<<YAML
-image:
-  tag: ${var.agent_version}
 config:
   kasAddress: "${data.gitlab_metadata.this.kas.external_url}"
 YAML
