@@ -48,9 +48,12 @@ resource "helm_release" "gitlab_agent" {
     value = gitlab_cluster_agent_token.this.token
   }
 
-  set {
-    name  = "image.tag"
-    value = var.agent_version
+  dynamic "set" {
+    for_each = var.agent_version == null ? {} : { yes = "1" }
+    content {
+      name  = "image.tag"
+      value = var.agent_version
+    }
   }
 
   values = [<<YAML
