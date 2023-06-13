@@ -45,7 +45,7 @@ variable "agent_name" {
 
 variable "chart_version" {
   type        = string
-  default     = "1.13.0"
+  default     = "1.14.1"
   description = "agent chart version"
 }
 

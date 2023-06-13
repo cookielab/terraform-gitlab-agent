@@ -45,7 +45,7 @@ module "example" {
 	 agent_config  = {}
 	 agent_version  = null
 	 author_email  = "example@mail.com"
-	 chart_version  = "1.13.0"
+	 chart_version  = "1.14.1"
 	 commit_message  = "feature: add/update agent config"
 	 create_project  = false
 	 namespace  = "gitlab-agent"
@@ -74,7 +74,7 @@ module "example" {
 | <a name="input_agent_name"></a> [agent\_name](#input\_agent\_name) | agent name | `string` | n/a | yes |
 | <a name="input_agent_version"></a> [agent\_version](#input\_agent\_version) | specific agent version | `string` | `null` | no |
 | <a name="input_author_email"></a> [author\_email](#input\_author\_email) | author email to be used for commit | `string` | `"example@mail.com"` | no |
-| <a name="input_chart_version"></a> [chart\_version](#input\_chart\_version) | agent chart version | `string` | `"1.13.0"` | no |
+| <a name="input_chart_version"></a> [chart\_version](#input\_chart\_version) | agent chart version | `string` | `"1.14.1"` | no |
 | <a name="input_commit_message"></a> [commit\_message](#input\_commit\_message) | use this commit message for agent config update | `string` | `"feature: add/update agent config"` | no |
 | <a name="input_create_project"></a> [create\_project](#input\_create\_project) | create a new agent managing project or use existing one | `bool` | `false` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | agent namespace | `string` | `"gitlab-agent"` | no |
