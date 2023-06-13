@@ -8,6 +8,8 @@ resource "gitlab_project" "this" {
   count = var.create_project ? 1 : 0
   name  = var.project_name
   path  = var.project_path
+
+  skip_wait_for_default_branch_protection = true
 }
 
 
