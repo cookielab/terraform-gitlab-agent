@@ -8,6 +8,8 @@ resource "gitlab_project" "this" {
   count = var.create_project ? 1 : 0
   name  = var.project_name
   path  = var.project_path
+
+  skip_wait_for_default_branch_protection = true
 }
 
 
@@ -46,9 +48,15 @@ resource "helm_release" "gitlab_agent" {
     value = gitlab_cluster_agent_token.this.token
   }
 
+  dynamic "set" {
+    for_each = var.agent_version == null ? {} : { yes = "1" }
+    content {
+      name  = "image.tag"
+      value = var.agent_version
+    }
+  }
+
   values = [<<YAML
-image:
-  tag: ${var.agent_version}
 config:
   kasAddress: "${data.gitlab_metadata.this.kas.external_url}"
 YAML
