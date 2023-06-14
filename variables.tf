@@ -73,7 +73,7 @@ variable "create_gitlab_variables" {
   description = "choose if you use submodule for create gitlab agent variables"
 }
 
-variable "application_namespace" {
+variable "app_namespace" {
   type        = string
   description = "kubernetes namespace where your app/s should be deployed"
 }
@@ -86,4 +86,15 @@ variable "gitlab_environment" {
 variable "app_project_path" {
   type        = string
   description = "Your application project path in gitlab"
+}
+
+variable "gitlab_agent_cluster_projects" {
+  type = map(object({
+    project_id = number
+    envs = list(object({
+      scope     = string
+      namespace = string
+    }))
+    path = string
+  }))
 }

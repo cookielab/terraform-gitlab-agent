@@ -1,3 +1,20 @@
+locals {
+  map_gitlab_agent_scopes = {
+    for item in flatten([
+      for project_key, project_value in var.gitlab_agent_cluster_projects : [
+        for env in project_value.envs : {
+          key = "${project_value.path}-${env.scope}"
+          value = {
+            path      = project_value.path
+            scope     = env.scope
+            namespace = env.namespace
+          }
+        }
+      ]
+    ]) : item.key => item.value
+  }
+}
+
 data "gitlab_metadata" "this" {}
 
 data "gitlab_project" "this" {
@@ -64,11 +81,11 @@ YAML
 }
 
 module "gitlab_agent_variable" {
-  count              = var.create_gitlab_variables == false ? 0 : 1
+  for_each           = local.map_gitlab_agent_scopes
   source             = "./modules/gitlab_agent_name_variable"
   agent_name         = var.agent_name
   agent_project_path = data.gitlab_project.this.id
-  app_namespace      = var.application_namespace
-  environment        = var.gitlab_environment
-  project_path       = var.app_project_path
+  app_namespace      = each.value.namespace
+  environment        = each.value.scope
+  project_path       = each.value.path
 }
