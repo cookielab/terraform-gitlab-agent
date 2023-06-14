@@ -67,11 +67,6 @@ variable "namespace" {
   description = "agent namespace"
 }
 
-variable "app_project_path" {
-  type        = string
-  description = "Your application project path in gitlab"
-}
-
 variable "gitlab_agent_cluster_projects" {
   type = map(object({
     project_id = number
