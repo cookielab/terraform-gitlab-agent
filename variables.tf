@@ -68,22 +68,22 @@ variable "namespace" {
 }
 
 variable "create_gitlab_variables" {
-  type = bool
-  default = true
+  type        = bool
+  default     = true
   description = "choose if you use submodule for create gitlab agent variables"
 }
 
 variable "application_namespace" {
-  type = string
+  type        = string
   description = "kubernetes namespace where your app/s should be deployed"
 }
 
 variable "gitlab_environment" {
-  type = string
+  type        = string
   description = "App environment in gitlab"
 }
 
 variable "app_project_path" {
-  type = string
+  type        = string
   description = "Your application project path in gitlab"
 }

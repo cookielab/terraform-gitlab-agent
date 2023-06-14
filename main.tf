@@ -64,11 +64,11 @@ YAML
 }
 
 module "gitlab_agent_variable" {
-  count = var.create_gitlab_variables == false ? 0:1
-  source = "./modules/gitlab_agent_name_variable"
-  agent_name = var.agent_name
+  count              = var.create_gitlab_variables == false ? 0 : 1
+  source             = "./modules/gitlab_agent_name_variable"
+  agent_name         = var.agent_name
   agent_project_path = data.gitlab_project.this.id
-  app_namespace = var.application_namespace
-  environment = var.gitlab_environment
-  project_path = var.app_project_path
+  app_namespace      = var.application_namespace
+  environment        = var.gitlab_environment
+  project_path       = var.app_project_path
 }
