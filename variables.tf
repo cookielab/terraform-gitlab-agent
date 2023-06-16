@@ -66,3 +66,14 @@ variable "namespace" {
   default     = "gitlab-agent"
   description = "agent namespace"
 }
+
+variable "gitlab_agent_cluster_projects" {
+  type = map(object({
+    project_id = number
+    envs = list(object({
+      scope     = string
+      namespace = string
+    }))
+    path = string
+  }))
+}
