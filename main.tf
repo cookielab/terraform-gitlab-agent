@@ -84,7 +84,7 @@ module "gitlab_agent_variable" {
   for_each           = local.map_gitlab_agent_scopes
   source             = "./modules/gitlab_agent_name_variable"
   agent_name         = var.agent_name
-  agent_project_path = data.gitlab_project.this.id
+  agent_project_path = data.gitlab_project.this.path_with_namespace
   app_namespace      = each.value.namespace
   environment        = each.value.scope
   project_path       = each.value.path

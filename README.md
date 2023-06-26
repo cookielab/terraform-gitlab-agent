@@ -40,6 +40,7 @@ module "example" {
 
 	 # Required variables
 	 agent_name  = 
+	 gitlab_agent_cluster_projects  = 
 
 	 # Optional variables
 	 agent_config  = {}
@@ -77,6 +78,7 @@ module "example" {
 | <a name="input_chart_version"></a> [chart\_version](#input\_chart\_version) | agent chart version | `string` | `"1.14.1"` | no |
 | <a name="input_commit_message"></a> [commit\_message](#input\_commit\_message) | use this commit message for agent config update | `string` | `"feature: add/update agent config"` | no |
 | <a name="input_create_project"></a> [create\_project](#input\_create\_project) | create a new agent managing project or use existing one | `bool` | `false` | no |
+| <a name="input_gitlab_agent_cluster_projects"></a> [gitlab\_agent\_cluster\_projects](#input\_gitlab\_agent\_cluster\_projects) | n/a | <pre>map(object({<br>    project_id = number<br>    envs = list(object({<br>      scope     = string<br>      namespace = string<br>    }))<br>    path = string<br>  }))</pre> | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | agent namespace | `string` | `"gitlab-agent"` | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | agent managing project nice/visible name | `string` | `"k8s-agent"` | no |
 | <a name="input_project_path"></a> [project\_path](#input\_project\_path) | agent managing project path | `string` | `""` | no |
