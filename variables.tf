@@ -68,8 +68,8 @@ variable "namespace" {
 }
 
 variable "create_namespace" {
-  type = bool
-  default = false
+  type        = bool
+  default     = false
   description = "option for create namespace"
 }
 
