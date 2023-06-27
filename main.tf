@@ -18,7 +18,7 @@ locals {
 data "gitlab_metadata" "this" {}
 
 data "gitlab_project" "this" {
-  path_with_namespace = var.create_project ? gitlab_project.this[0].path_with_namespace : var.project_path
+  path_with_namespace = var.create_project ? gitlab_project.this[0].path_with_namespace : "${var.project_namespace}/${var.project_path}"
 }
 
 data "gitlab_group" "namespace" {
