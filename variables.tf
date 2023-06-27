@@ -69,7 +69,6 @@ variable "namespace" {
 
 variable "gitlab_agent_cluster_projects" {
   type = map(object({
-    project_id = number
     envs = list(object({
       scope     = string
       namespace = string
