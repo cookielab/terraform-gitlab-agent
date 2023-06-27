@@ -10,6 +10,18 @@ variable "project_name" {
   description = "agent managing project nice/visible name"
 }
 
+variable "project_path" {
+  type        = string
+  default     = null
+  description = "agent managing project technical name (slug)"
+}
+
+variable "project_namespace" {
+  type        = string
+  default     = ""
+  description = "agent managing project namespace, required when creating new project"
+}
+
 variable "agent_config" {
   type        = any
   default     = {}
@@ -30,12 +42,6 @@ variable "commit_message" {
   type        = string
   default     = "feature: add/update agent config"
   description = "use this commit message for agent config update"
-}
-
-variable "project_path" {
-  type        = string
-  default     = ""
-  description = "agent managing project path"
 }
 
 variable "agent_name" {

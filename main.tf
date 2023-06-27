@@ -21,10 +21,17 @@ data "gitlab_project" "this" {
   path_with_namespace = var.create_project ? gitlab_project.this[0].path_with_namespace : var.project_path
 }
 
+data "gitlab_group" "namespace" {
+  count     = var.create_project ? 1 : 0
+  full_path = var.project_namespace
+}
+
 resource "gitlab_project" "this" {
   count = var.create_project ? 1 : 0
   name  = var.project_name
   path  = var.project_path
+
+  namespace_id = data.gitlab_group.namespace[0].id
 
   skip_wait_for_default_branch_protection = true
 }
