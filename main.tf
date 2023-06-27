@@ -53,12 +53,19 @@ resource "gitlab_repository_file" "agent_config" {
   commit_message = "${var.commit_message} ${gitlab_cluster_agent.this.name}"
 }
 
+resource "kubernetes_namespace" "gitlab_agent" {
+  count = var.create_namespace ? 1 : 0
+  metadata {
+    name = var.namespace
+  }
+}
+
 resource "helm_release" "gitlab_agent" {
   name       = var.agent_name
   repository = "https://charts.gitlab.io/"
   chart      = "gitlab-agent"
   version    = var.chart_version
-  namespace  = var.namespace
+  namespace  = var.create_namespace ? kubernetes_namespace.gitlab_agent[0].metadata[0].name : var.namespace
 
   set_sensitive {
     name  = "config.token"

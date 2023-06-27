@@ -67,6 +67,12 @@ variable "namespace" {
   description = "agent namespace"
 }
 
+variable "create_namespace" {
+  type        = bool
+  default     = false
+  description = "option for create namespace"
+}
+
 variable "gitlab_agent_cluster_projects" {
   type = map(object({
     envs = list(object({
