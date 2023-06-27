@@ -54,7 +54,7 @@ resource "gitlab_repository_file" "agent_config" {
 }
 
 resource "kubernetes_namespace" "gitlab_agent" {
-  count = var.create_namespace ? 0 : 1
+  count = var.create_namespace ? 1 : 0
   metadata {
     name = var.namespace
   }
