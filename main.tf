@@ -65,7 +65,7 @@ resource "helm_release" "gitlab_agent" {
   repository = "https://charts.gitlab.io/"
   chart      = "gitlab-agent"
   version    = var.chart_version
-  namespace  = var.namespace
+  namespace  = var.create_namespace ? kubernetes_namespace.gitlab_agent.metadata[0].name : var.namespace
 
   set_sensitive {
     name  = "config.token"
