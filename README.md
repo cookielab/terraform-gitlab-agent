@@ -29,9 +29,9 @@ agent_config = {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_gitlab"></a> [gitlab](#requirement\_gitlab) | ~> 16.0 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.9 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.21.1 |
+| <a name="requirement_gitlab"></a> [gitlab](#requirement\_gitlab) | ~> 16.3 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.11 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.23 |
 
 Basic usage of this module is as follows:
 
@@ -47,7 +47,7 @@ module "example" {
 	 agent_config  = {}
 	 agent_version  = null
 	 author_email  = "example@mail.com"
-	 chart_version  = "1.14.1"
+	 chart_version  = "1.18.0"
 	 commit_message  = "feature: add/update agent config"
 	 create_namespace  = false
 	 create_project  = false
@@ -80,7 +80,7 @@ module "example" {
 | <a name="input_agent_name"></a> [agent\_name](#input\_agent\_name) | agent name | `string` | n/a | yes |
 | <a name="input_agent_version"></a> [agent\_version](#input\_agent\_version) | specific agent version | `string` | `null` | no |
 | <a name="input_author_email"></a> [author\_email](#input\_author\_email) | author email to be used for commit | `string` | `"example@mail.com"` | no |
-| <a name="input_chart_version"></a> [chart\_version](#input\_chart\_version) | agent chart version | `string` | `"1.14.1"` | no |
+| <a name="input_chart_version"></a> [chart\_version](#input\_chart\_version) | agent chart version | `string` | `"1.18.0"` | no |
 | <a name="input_commit_message"></a> [commit\_message](#input\_commit\_message) | use this commit message for agent config update | `string` | `"feature: add/update agent config"` | no |
 | <a name="input_create_namespace"></a> [create\_namespace](#input\_create\_namespace) | option for create namespace | `bool` | `false` | no |
 | <a name="input_create_project"></a> [create\_project](#input\_create\_project) | create a new agent managing project or use existing one | `bool` | `false` | no |
