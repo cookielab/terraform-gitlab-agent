@@ -65,6 +65,16 @@ resource "kubernetes_namespace" "gitlab_agent" {
   metadata {
     name = var.namespace
   }
+
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["cattle.io/status"],
+      metadata[0].annotations["lifecycle.cattle.io/create.namespace-auth"],
+      metadata[0].annotations["field.cattle.io/projectId"],
+      metadata[0].annotations["management.cattle.io/no-default-sa-token"],
+      metadata[0].labels["field.cattle.io/projectId"],
+    ]
+  }
 }
 
 resource "helm_release" "gitlab_agent" {
