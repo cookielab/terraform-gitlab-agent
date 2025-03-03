@@ -37,25 +37,25 @@ Basic usage of this module is as follows:
 
 ```hcl
 module "example" {
-	 source  = "<module-path>"
-
+  	 source  = "<module-path>"
+  
 	 # Required variables
-	 agent_name  = 
-	 gitlab_agent_cluster_projects  = 
-
+  	 agent_name  = 
+  	 gitlab_agent_cluster_projects  = 
+  
 	 # Optional variables
-	 agent_config  = {}
-	 agent_version  = null
-	 author_email  = "example@mail.com"
-	 chart_version  = "1.14.1"
-	 commit_message  = "feature: add/update agent config"
-	 create_namespace  = false
-	 create_project  = false
-	 namespace  = "gitlab-agent"
-	 project_name  = "k8s-agent"
-	 project_namespace  = ""
-	 project_path  = null
-	 token_description  = ""
+  	 agent_config  = {}
+  	 agent_version  = null
+  	 author_email  = "example@mail.com"
+  	 chart_version  = "1.14.1"
+  	 commit_message  = "feature: add/update agent config"
+  	 create_namespace  = false
+  	 create_project  = false
+  	 namespace  = "gitlab-agent"
+  	 project_name  = "k8s-agent"
+  	 project_namespace  = ""
+  	 project_path  = null
+  	 token_description  = ""
 }
 ```
 
@@ -76,7 +76,7 @@ module "example" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_agent_config"></a> [agent\_config](#input\_agent\_config) | agent config to be used regarding:<br>    * https://docs.gitlab.com/ee/user/clusters/agent/gitops.html<br>    * https://docs.gitlab.com/ee/user/clusters/agent/ci_cd_workflow.html#authorize-the-agent-to-access-your-projects | `any` | `{}` | no |
+| <a name="input_agent_config"></a> [agent\_config](#input\_agent\_config) | agent config to be used regarding:<br/>    * https://docs.gitlab.com/ee/user/clusters/agent/gitops.html<br/>    * https://docs.gitlab.com/ee/user/clusters/agent/ci_cd_workflow.html#authorize-the-agent-to-access-your-projects | `any` | `{}` | no |
 | <a name="input_agent_name"></a> [agent\_name](#input\_agent\_name) | agent name | `string` | n/a | yes |
 | <a name="input_agent_version"></a> [agent\_version](#input\_agent\_version) | specific agent version | `string` | `null` | no |
 | <a name="input_author_email"></a> [author\_email](#input\_author\_email) | author email to be used for commit | `string` | `"example@mail.com"` | no |
@@ -84,7 +84,7 @@ module "example" {
 | <a name="input_commit_message"></a> [commit\_message](#input\_commit\_message) | use this commit message for agent config update | `string` | `"feature: add/update agent config"` | no |
 | <a name="input_create_namespace"></a> [create\_namespace](#input\_create\_namespace) | option for create namespace | `bool` | `false` | no |
 | <a name="input_create_project"></a> [create\_project](#input\_create\_project) | create a new agent managing project or use existing one | `bool` | `false` | no |
-| <a name="input_gitlab_agent_cluster_projects"></a> [gitlab\_agent\_cluster\_projects](#input\_gitlab\_agent\_cluster\_projects) | n/a | <pre>map(object({<br>    envs = list(object({<br>      scope     = string<br>      namespace = string<br>    }))<br>    path = string<br>  }))</pre> | n/a | yes |
+| <a name="input_gitlab_agent_cluster_projects"></a> [gitlab\_agent\_cluster\_projects](#input\_gitlab\_agent\_cluster\_projects) | n/a | <pre>map(object({<br/>    envs = list(object({<br/>      scope     = string<br/>      namespace = string<br/>    }))<br/>    path = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | agent namespace | `string` | `"gitlab-agent"` | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | agent managing project nice/visible name | `string` | `"k8s-agent"` | no |
 | <a name="input_project_namespace"></a> [project\_namespace](#input\_project\_namespace) | agent managing project namespace, required when creating new project | `string` | `""` | no |
