@@ -57,7 +57,7 @@ resource "gitlab_repository_file" "agent_config" {
   branch    = data.gitlab_project.this.default_branch
   file_path = ".gitlab/agents/${gitlab_cluster_agent.this.name}/config.yaml"
   content   = base64encode(yamlencode(var.agent_config))
-  encoding  = base64
+  encoding  = "base64"
 
   author_email   = var.author_email
   commit_message = "${var.commit_message} ${gitlab_cluster_agent.this.name}"
