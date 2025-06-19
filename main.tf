@@ -13,6 +13,14 @@ locals {
       ]
     ]) : item.key => item.value
   }
+
+  gitlab_agent_set_values = []
+  gitlab_agent_version_override = var.agent_version == null ? [] : [
+    {
+      name  = "image.tag"
+      value = var.agent_version
+    }
+  ]
 }
 
 data "gitlab_metadata" "this" {}
@@ -87,18 +95,14 @@ resource "helm_release" "gitlab_agent" {
   version    = var.chart_version
   namespace  = var.create_namespace ? kubernetes_namespace.gitlab_agent[0].metadata[0].name : var.namespace
 
-  set_sensitive {
-    name  = "config.token"
-    value = gitlab_cluster_agent_token.this.token
-  }
-
-  dynamic "set" {
-    for_each = var.agent_version == null ? {} : { yes = "1" }
-    content {
-      name  = "image.tag"
-      value = var.agent_version
+  set_sensitive = [
+    {
+      name  = "config.token"
+      value = gitlab_cluster_agent_token.this.token
     }
-  }
+  ]
+
+  set = concat(local.gitlab_agent_set_values, local.gitlab_agent_version_override)
 
   values = [<<YAML
 config:
