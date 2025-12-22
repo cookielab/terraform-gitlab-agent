@@ -29,9 +29,9 @@ agent_config = {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_gitlab"></a> [gitlab](#requirement\_gitlab) | >= 16.0, < 18.0 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.9 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.21 |
+| <a name="requirement_gitlab"></a> [gitlab](#requirement\_gitlab) | >= 16.0, < 19.0 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 3.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.21 |
 
 Basic usage of this module is as follows:
 
@@ -68,7 +68,7 @@ module "example" {
 | [gitlab_project.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/project) | resource |
 | [gitlab_repository_file.agent_config](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/resources/repository_file) | resource |
 | [helm_release.gitlab_agent](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
-| [kubernetes_namespace.gitlab_agent](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
+| [kubernetes_namespace_v1.gitlab_agent](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace_v1) | resource |
 | [gitlab_group.namespace](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/data-sources/group) | data source |
 | [gitlab_metadata.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/data-sources/metadata) | data source |
 | [gitlab_project.this](https://registry.terraform.io/providers/gitlabhq/gitlab/latest/docs/data-sources/project) | data source |
