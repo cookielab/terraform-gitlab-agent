@@ -111,11 +111,6 @@ YAML
   ]
 }
 
-moved {
-  from = kubernetes_namespace.gitlab_agent
-  to   = kubernetes_namespace_v1.gitlab_agent
-}
-
 module "gitlab_agent_variable" {
   for_each           = local.map_gitlab_agent_scopes
   source             = "./modules/gitlab_agent_name_variable"
