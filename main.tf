@@ -41,9 +41,8 @@ resource "gitlab_project" "this" {
 
   namespace_id = data.gitlab_group.namespace[0].id
 
-  # `restrict_user_defined_variables` can be removed with provider constraint >=17.7
-  restrict_user_defined_variables         = true
-  skip_wait_for_default_branch_protection = true
+  ci_pipeline_variables_minimum_override_role = "maintainer"
+  skip_wait_for_default_branch_protection     = true
 }
 
 
